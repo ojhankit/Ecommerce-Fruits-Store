@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://kit.fontawesome.com/e9883db5ad.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>RamJi</title>
+</head>
+<body>
+    <div class="container">
+        <header class="navbar">
+            <div class="logo">
+                <img src="../download.jpg" alt="logo">
+                <i class="fa-solid fa-cart-shopping">
+                </i>
+                <span id="qty">0</span>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="content">
+            <h1>Welcome To Fruits House</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam deleniti, vitae nemo minima iure debitis, sed officiis perferendis aliquam, voluptas nobis dolorum. Est, dolorum assumenda.</p>
+            <button id="btn">Explore</button>
+        </main>
+    </div>
+    <section class="cards">
+        <h1>Top Products</h1>
+        <div class="products">
+            <div class="item">
+                <img src="../apple-7739714_640.jpg" alt="Apple">
+                <p>Apple</p>
+                <button class="buy">Add</button>
+            </div>
+            <div class="item">
+                <img src="../blueberries-7184897_640.jpg" alt="BlueBerries">
+                <p>BlueBerries</p>
+                <button class="buy">Add</button>
+            </div>
+            <div class="item">
+                <img src="../strawberry-1180048_640.jpg" alt="Strawberry">
+                <p>Strawberry</p>
+                <button class="buy">Add</button>
+            </div>
+            <div class="item">
+                <img src="../mango-8283268_640.webp" alt="Mango">
+                <p>Mango</p>
+                <button class="buy">Add</button>
+            </div>
+        </div>
+    </section>
+    <section class="all-products">
+        <div class="item">
+            <img src="../apple-7739714_640.jpg" alt="apple">
+            <p>Apple</p>
+            <button class="buy">Add</button>
+        </div>
+        <div class="item">
+            <img src="../bananas-8364511_640.webp" alt="Bananas">
+            <p>Bananas</p>
+            <button class="buy">Add</button>
+        </div>
+        <div class="item">
+            <img src="../blueberries-7184897_640.jpg" alt="BlueBerries">
+            <p>BlueBerries</p>
+            <button class="buy">Add</button>
+        </div>
+        <div class="item">
+            <img src="../dragon-fruit-3579943_640.jpg" alt="Dragon-Fruit">
+            <p>Dragon-Fruit</p>
+            <button class="buy">Add</button>
+        </div>
+        <div class="item">
+            <img src="../fruit-4508741_640.jpg" alt="Pomeogranate">
+            <p>Pomeogranate</p>
+            <button class="buy">Add</button>
+        </div>
+        <div class="item">
+            <img src="../fruit-6630377_1280.jpg" alt="Australian Grapes">
+            <p>Australian Grapes</p>
+            <button class="buy">Add</button>
+        </div>
+        <div class="item">
+            <img src="../mango-8283268_640.webp" alt="Mango">
+            <p>Mango</p>
+            <button class="buy">Add</button>
+        </div>
+        <div class="item">
+            <img src="../oranges-1995079_640.jpg" alt="Nagpuri Oranges">
+            <p>Nagpuri Oranges</p>
+            <button class="buy">Add</button>
+        </div>
+        <div class="item">
+            <img src="../strawberry-1180048_640.jpg" alt="Strawberry">
+            <p>Strawberry</p>
+            <button class="buy">Add</button>
+        </div>
+        <div class="item">
+            <img src="../sugar-apple-8161386_640.webp" alt="Sugar Apple">
+            <p>Sugar Apple</p>
+            <button class="buy">Add</button>
+        </div>
+    </section>
+    <footer>
+        <ul class="links">
+            <li><strong>Contact Us:</strong></li>
+            <li>123 Fruit Lane, Orchard City, Country</li>
+            <li>Phone: (123) 456-7890</li>
+            <li>Email: info@fruitshop.com</li>
+            <li><strong>Accepted Payment Methods:</strong></li>
+            <li>Visa, MasterCard, PayPal, Apple Pay</li>
+        </ul>
+    </footer>
+    <script>
+        const qty = document.getElementById('qty');
+        const buttons = document.querySelectorAll('.buy');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                qty.textContent = parseInt(qty.textContent) + 1;
+            });
+        });
+
+        const cart = document.querySelector('.fa-solid');
+        cart.addEventListener('click',function(){
+            window.location.href = "./checkoutpage.html";
+        })
+    </script>
+</body>
+</html>
