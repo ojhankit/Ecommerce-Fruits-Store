@@ -6,15 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="https://kit.fontawesome.com/e9883db5ad.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
-    <title>RamJi</title>
+    <title>Ecommerce</title>
 </head>
 <body>
     <div class="container">
         <header class="navbar">
             <div class="logo">
-                <img src="../download.jpg" alt="logo">
-                <i class="fa-solid fa-cart-shopping">
-                </i>
+                <img src="./download.jpg" alt="logo">
+                <i class="fa-solid fa-cart-shopping"></i>
                 <span id="qty">0</span>
             </div>
             <nav>
@@ -36,77 +35,77 @@
         <h1>Top Products</h1>
         <div class="products">
             <div class="item">
-                <img src="../apple-7739714_640.jpg" alt="Apple">
+                <img src="./apple-7739714_640.jpg" alt="Apple">
                 <p>Apple</p>
-                <button class="buy">Add</button>
+                <button class="buy" data-product="Apple">Add</button>
             </div>
             <div class="item">
-                <img src="../blueberries-7184897_640.jpg" alt="BlueBerries">
+                <img src="./blueberries-7184897_640.jpg" alt="BlueBerries">
                 <p>BlueBerries</p>
-                <button class="buy">Add</button>
+                <button class="buy"data-product="Blueberries">Add</button>
             </div>
             <div class="item">
-                <img src="../strawberry-1180048_640.jpg" alt="Strawberry">
+                <img src="./strawberry-1180048_640.jpg" alt="Strawberry">
                 <p>Strawberry</p>
-                <button class="buy">Add</button>
+                <button class="buy"data-product="Strawberry">Add</button>
             </div>
             <div class="item">
-                <img src="../mango-8283268_640.webp" alt="Mango">
+                <img src="./mango-8283268_640.webp" alt="Mango">
                 <p>Mango</p>
-                <button class="buy">Add</button>
+                <button class="buy"data-product="Mango">Add</button>
             </div>
         </div>
     </section>
     <section class="all-products">
         <div class="item">
-            <img src="../apple-7739714_640.jpg" alt="apple">
+            <img src="./apple-7739714_640.jpg" alt="apple">
             <p>Apple</p>
-            <button class="buy">Add</button>
+            <button class="buy"data-product="Apple">Add</button>
         </div>
         <div class="item">
-            <img src="../bananas-8364511_640.webp" alt="Bananas">
+            <img src="./bananas-8364511_640.webp" alt="Bananas">
             <p>Bananas</p>
-            <button class="buy">Add</button>
+            <button class="buy"data-product="Bananas">Add</button>
         </div>
         <div class="item">
-            <img src="../blueberries-7184897_640.jpg" alt="BlueBerries">
+            <img src="./blueberries-7184897_640.jpg" alt="BlueBerries">
             <p>BlueBerries</p>
-            <button class="buy">Add</button>
+            <button class="buy"data-product="BlueBerries">Add</button>
         </div>
         <div class="item">
-            <img src="../dragon-fruit-3579943_640.jpg" alt="Dragon-Fruit">
+            <img src="./dragon-fruit-3579943_640.jpg" alt="Dragon-Fruit">
             <p>Dragon-Fruit</p>
-            <button class="buy">Add</button>
+            <button class="buy"data-product="Dragon-Fruit">Add</button>
         </div>
         <div class="item">
-            <img src="../fruit-4508741_640.jpg" alt="Pomeogranate">
+            <img src="./fruit-4508741_640.jpg" alt="Pomeogranate">
             <p>Pomeogranate</p>
-            <button class="buy">Add</button>
+            <button class="buy"data-product="Pomeogranate">Add</button>
         </div>
         <div class="item">
-            <img src="../fruit-6630377_1280.jpg" alt="Australian Grapes">
+            <img src="./fruit-6630377_1280.jpg" alt="Australian Grapes">
             <p>Australian Grapes</p>
-            <button class="buy">Add</button>
+            <button class="buy"data-product="Grapes">Add</button>
         </div>
         <div class="item">
-            <img src="../mango-8283268_640.webp" alt="Mango">
+            <img src="./mango-8283268_640.webp" alt="Mango">
             <p>Mango</p>
-            <button class="buy">Add</button>
+            <button class="buy"data-product="Mango">Add</button>
         </div>
         <div class="item">
-            <img src="../oranges-1995079_640.jpg" alt="Nagpuri Oranges">
+            <img src="./oranges-1995079_640.jpg" alt="Nagpuri Oranges">
             <p>Nagpuri Oranges</p>
-            <button class="buy">Add</button>
+            <button class="buy"data-product="Orange">Add</button>
         </div>
         <div class="item">
-            <img src="../strawberry-1180048_640.jpg" alt="Strawberry">
+            <img src="./strawberry-1180048_640.jpg" alt="Strawberry">
             <p>Strawberry</p>
-            <button class="buy">Add</button>
+            <button class="buy"data-product="Strawberry">Add</button>
         </div>
         <div class="item">
-            <img src="../sugar-apple-8161386_640.webp" alt="Sugar Apple">
+            <img src="./sugar-apple-8161386_640.webp" alt="Sugar Apple">
             <p>Sugar Apple</p>
-            <button class="buy">Add</button>
+            <button class="buy"data-product="Sugar Apple">Add</button>
         </div>
     </section>
     <footer>
@@ -120,19 +119,30 @@
         </ul>
     </footer>
     <script>
-        const qty = document.getElementById('qty');
-        const buttons = document.querySelectorAll('.buy');
+        document.addEventListener('DOMContentLoaded', () => {
+            const qty = document.getElementById('qty');
+            const buttons = document.querySelectorAll('.buy');
 
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                qty.textContent = parseInt(qty.textContent) + 1;
+            const addToCart = (product) => {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cart.push(product);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                qty.textContent = cart.length;
+                alert(`${product} added to cart!`);
+            };
+
+            buttons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const product = event.target.getAttribute('data-product');
+                    addToCart(product);
+                });
+            });
+
+            const cartIcon = document.querySelector('.fa-cart-shopping');
+            cartIcon.addEventListener('click', () => {
+                window.location.href = './checkoutpage.html';
             });
         });
-
-        const cart = document.querySelector('.fa-solid');
-        cart.addEventListener('click',function(){
-            window.location.href = "./checkoutpage.html";
-        })
     </script>
 </body>
 </html>

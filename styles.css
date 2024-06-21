@@ -17,7 +17,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url("../bgimage.jpg");
+    background-image: url("./bgimage.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -41,8 +41,11 @@ body {
     color:white
 }
 .logo span{
+    position: absolute;
+    top:80px;
+    left:110px;
     font-size: 1.2rem;
-    color:black;
+    color:red;
     font-weight: bolder;
 }
 nav ul {
@@ -157,11 +160,10 @@ nav ul li a:hover {
 }
 
 .all-products {
-    background-image: url("../bgimage\ \(2\).jpg");
+    background-image: url("./bgiamge.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: #f8f9fa;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
